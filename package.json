@@ -1,0 +1,29 @@
+{
+    "name" : "solo",
+    "version" : "0.0.0",
+    "description" : "独唱团",
+    "main" : "index.js",
+    "dependencies": {
+        "node-markdown": "latest"
+    },
+    "devDependencies": {
+        "mocha": "latest",
+        "chai": "latest"
+    },
+    "scripts" : {
+        "test" : "test"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "git@github.com:lambgao/solo.git"
+    },
+    "keywords" : [
+        "solo",
+        "blog",
+        "github",
+        "独唱团",
+        "node"
+    ],
+    "author" : "lamb",
+    "license" : "MIT"
+}
