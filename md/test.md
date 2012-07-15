@@ -48,3 +48,7 @@ monitor 项目说明
 
 This is a demo page
 ===================
+
+    var fuck = '方滨兴';
+    console.log(fuck == 404);
+    // true
