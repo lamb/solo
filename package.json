@@ -18,11 +18,12 @@
         "url" : "git@github.com:lambgao/solo.git"
     },
     "keywords" : [
-        "solo",
         "blog",
-        "github",
+        "solo",
+        "party",
         "独唱团",
-        "node"
+        "node",
+        "github"
     ],
     "author" : "lamb",
     "license" : "MIT"
