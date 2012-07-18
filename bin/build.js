@@ -5,13 +5,13 @@ var skinPath = './skin/';
 var articlePath = './article/';
 var mdPath = './md/';
 
-//
+//检查是否存在，不存在则创建
 if(fs.exists(articlePath)){
   fs.mkdirSync(articlePath);
 }
+
 // md目录下的所有文件
 var files = fs.readdirSync('md');
-
 var file, dotLastIndex, fileType, fileName;
 
 // 对所有以 .md 为后缀的文件，进行转换
@@ -34,7 +34,7 @@ function buildFile(file, fileName) {
   var html = md(text);
 
   // 替换模板内容
-  fileContent = getTemplate('article.html').replace('${article}', html);
+  fileContent = readFile('article.html').replace('${article}', html);
 
   fs.writeFileSync(articlePath + fileName + '.html', fileContent);
 }
@@ -42,6 +42,6 @@ function buildFile(file, fileName) {
 console.log('Done!');
 
 // 获取皮肤模板文件内容
-function getTemplate(fileName) {
+function readFile(fileName) {
   return fs.readFileSync(skinPath + fileName, 'utf8');
 }
