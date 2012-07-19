@@ -2,9 +2,10 @@
     "name" : "solo",
     "version" : "0.0.0",
     "description" : "独唱团",
-    "main" : "index.js",
+    "main" : "app.js",
     "dependencies": {
-        "node-markdown": "latest"
+        "node-markdown": "latest",
+        "connect": "latest"
     },
     "devDependencies": {
         "mocha": "latest",
