@@ -3,6 +3,8 @@ var http = require('http');
 var numCPUs = require('os').cpus().length;
 var url = require('url');
 var fs = require('fs');
+var path =  require('path');
+var mime = require("./lib/mime").types;
 
 if (cluster.isMaster) {
   // Fork workers.
@@ -18,34 +20,46 @@ if (cluster.isMaster) {
   // In this case its a HTTP server
   http.createServer(function (request, response) {
     var pathname = url.parse(request.url).pathname;
-    console.log(pathname)
-    fs.exists(pathname, function (exists) {
+    var filename = __dirname + pathname;
+    fs.exists(filename, function (exists) {
       if (!exists) {
-        response.writeHead(404, {
-          'Content-Type' : 'text/plain'
-        });
-
-        response.write("This request URL " + pathname + " was not found on this server.");
-        response.end();
+        write404(__dirname + "/404.html", response);
       } else {
-        fs.readFile(pathname, "binary", function (err, file) {
+        fs.stat(filename, function (err, stats) {
           if (err) {
-            response.writeHead(500, {
-              'Content-Type' : 'text/plain'
-            });
-
-            response.end(err);
+            write404(__dirname + "/404.html", response);
           } else {
-            response.writeHead(200, {
-              'Content-Type' : 'text/html'
-            });
-
-            response.write(file, "binary");
-
-            response.end();
+            if (stats.isDirectory()) {
+              fs.readFile(filename + "index.html", "binary", function (err, file) {
+                writeFile(200 ,filename + "index.html", response, file);
+              });
+            } else {
+              fs.readFile(filename, "binary", function (err, file) {
+                if (err) {
+                  write404(__dirname + "/404.html", response);
+                } else {
+                  writeFile(200, filename, response, file);
+                }
+              });
+            }
           }
         });
       }
     });
   }).listen(80);
+}
+
+function write404(filename, response){
+  fs.readFile(filename, "binary", function (err, file) {
+    writeFile(404, filename, response,file);
+  });
+}
+
+function writeFile(status, filename, response, file){
+  var suffix = path.extname(filename);
+  suffix = suffix ? suffix.slice(1) : 'unknown';
+  var contentType = mime[suffix] || "text/plain";
+  response.writeHead(status, {'Content-Type': contentType});
+  response.write(file, "binary");
+  response.end();
 }
