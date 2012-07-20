@@ -23,20 +23,18 @@ if (cluster.isMaster) {
     var filename = __dirname + pathname;
     fs.exists(filename, function (exists) {
       if (!exists) {
-        write404(__dirname + "/404.html", response);
+        write404(response);
       } else {
         fs.stat(filename, function (err, stats) {
           if (err) {
-            write404(__dirname + "/404.html", response);
+            write404(response);
           } else {
             if (stats.isDirectory()) {
-              fs.readFile(filename + "index.html", "binary", function (err, file) {
-                writeFile(200 ,filename + "index.html", response, file);
-              });
+              write404(response);
             } else {
               fs.readFile(filename, "binary", function (err, file) {
                 if (err) {
-                  write404(__dirname + "/404.html", response);
+                  write404(response);
                 } else {
                   writeFile(200, filename, response, file);
                 }
@@ -49,9 +47,9 @@ if (cluster.isMaster) {
   }).listen(80);
 }
 
-function write404(filename, response){
-  fs.readFile(filename, "binary", function (err, file) {
-    writeFile(404, filename, response,file);
+function write404(response){
+  fs.readFile(__dirname + "/404.html", "binary", function (err, file) {
+    writeFile(404, __dirname + "/404.html", response, file);
   });
 }
 
