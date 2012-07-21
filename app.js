@@ -3,7 +3,7 @@ var http = require('http');
 var numCPUs = require('os').cpus().length;
 var url = require('url');
 var fs = require('fs');
-var path =  require('path');
+var path = require('path');
 var mime = require("./lib/mime").types;
 
 if (cluster.isMaster) {
@@ -16,10 +16,9 @@ if (cluster.isMaster) {
     console.log('worker ' + worker.pid + ' died');
   });
 } else {
-  // Workers can share any TCP connection
-  // In this case its a HTTP server
   http.createServer(function (request, response) {
     var pathname = url.parse(request.url).pathname;
+    if (pathname.charAt(pathname.length - 1) == "/")pathname += "index.html";
     var filename = __dirname + pathname;
     fs.exists(filename, function (exists) {
       if (!exists) {
@@ -47,17 +46,17 @@ if (cluster.isMaster) {
   }).listen(80);
 }
 
-function write404(response){
+function write404(response) {
   fs.readFile(__dirname + "/404.html", "binary", function (err, file) {
     writeFile(404, __dirname + "/404.html", response, file);
   });
 }
 
-function writeFile(status, filename, response, file){
+function writeFile(status, filename, response, file) {
   var suffix = path.extname(filename);
   suffix = suffix ? suffix.slice(1) : 'unknown';
   var contentType = mime[suffix] || "text/plain";
-  response.writeHead(status, {'Content-Type': contentType});
+  response.writeHead(status, {'Content-Type' : contentType});
   response.write(file, "binary");
   response.end();
 }
