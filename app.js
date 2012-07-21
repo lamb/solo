@@ -4,7 +4,7 @@ var numCPUs = require('os').cpus().length;
 var url = require('url');
 var fs = require('fs');
 var path = require('path');
-var mime = require("./lib/mime").types;
+var util = require("./lib/util");
 
 if (cluster.isMaster) {
   // Fork workers.
@@ -53,9 +53,7 @@ function write404(response) {
 }
 
 function writeFile(status, filename, response, file) {
-  var suffix = path.extname(filename);
-  suffix = suffix ? suffix.slice(1) : 'unknown';
-  var contentType = mime[suffix] || "text/plain";
+  var contentType = util.getContentType(filename);
   response.writeHead(status, {'Content-Type' : contentType});
   response.write(file, "binary");
   response.end();
