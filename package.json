@@ -4,8 +4,7 @@
     "description" : "独唱团",
     "main" : "app.js",
     "dependencies": {
-        "node-markdown": "latest",
-        "qiniu": "latest"
+        "node-markdown": "latest"
     },
     "devDependencies": {
         "mocha": "latest",
