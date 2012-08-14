@@ -44,7 +44,7 @@ body {
 	font-size: 1.1em;
 	color: black;
 	letter-spacing: -1px;
-	font-family: navfont;
+	font-family: "navfont";
 }
 
 #nav li a:hover {
