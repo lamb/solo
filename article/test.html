@@ -1,1 +1,152 @@
-{Template Error}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="TooBug,web前端,前端,HTML,CSS,JavaScript,js" />
+	<title>TooBug</title>
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" href="../skin/default/css/light.css" />
+	<link rel="stylesheet" href="../js/prettify/prettify.css"   />
+	<script src="../js/prettify/prettify.js"></script>
+	<script src="../javascript/jquery/jquery-1.7.2.min.js"></script>
+	<script src="../javascript/index.js"></script>
+</head>
+<body>
+<div id="nav">
+	<ul>
+		<li><a href="../index.html">首 页</a></li>
+		<li><a href="../index.html">博 客</a></li>
+		<li><a href="../sand.html">点 滴</a></li>
+		<li><a href="../about.html">关 于</a></li>
+	</ul>
+</div>
+
+<div id="head">
+<h1>金氧</h1>
+<h2>在java与node间挣扎徘徊</h2>
+</div>
+
+<div class="main">
+<div id="right">
+<img id="miga" src="../image/miga_256x256.png" alt="miga_256x256.png">
+<h3>友情链接</h3>
+<ul>
+    <li>
+        <a href="http://lamb.b3log.org/" title="沉默<>羔羊" target="_blank">
+            <img alt="lamb" src="http://www.google.com/s2/u/0/favicons?domain=lamb.b3log.org">
+        </a>
+        <a href="http://lamb.b3log.org/" title="沉默<>羔羊" target="_blank">
+            沉默<>羔羊
+        </a>
+    </li>
+    <li>
+        <a href="http://www.nodeclipse.org/" title="nodeclipse" target="_blank">
+            <img alt="nodeclipse" src="http://www.google.com/s2/u/0/favicons?domain=www.nodeclipse.org">
+        </a>
+        <a href="http://www.nodeclipse.org/" title="nodeclipse" target="_blank">
+            nodeclipse
+        </a>
+    </li>
+</ul>
+</div>
+
+<div id="content">
+<div id="article">
+<h1>这是文章的标题</h1>
+
+<h2>2012-07-19 16:56</h2>
+
+<h3>这是h3</h3>
+
+<blockquote>
+  <p>This is a blockquote.</p>
+  
+  <p>This is the second paragraph in the blockquote.</p>
+  
+  <h2>This is an H2 in a blockquote</h2>
+</blockquote>
+
+<pre><code>_Task = require('../models/myModel').Task;
+_find  = _Task.prototype.find
+_Task.prototype.find = function(cb){
+    cb(null,[{name:'task1'}])
+};
+
+var fs = require('fs'), path = require('path');
+console.log(__dirname);
+fs.watch(__dirname, function (event, filename) {
+    if(filename){
+        var type  = event == "change" ? "changed" : "created"; //有文件或目录发生改变或被添加
+        var filepath = path.join(__dirname ,filename);
+        var stat = fs.statSync(filepath);
+        "isDirectory,isFile,isSymbolicLink".replace(/\w+/g,function(method){
+            if(stat[method]()){
+                console.log( method.replace(/^is/,"")+ "  '"+ filepath +"' has "+ type)
+            }
+        });
+    }else{
+        console.log("Some file is removed") //删除了某个文件或目录
+    }
+});
+</code></pre>
+
+<h1>monitor 项目说明</h1>
+
+<p><a href="http://www.iteye.com/">Java Eye</a>
+<a href="http://www.neti.ee">link</a></p>
+
+<h2>部署环境</h2>
+
+<hr />
+
+<ol>
+<li>JDK:    1.6_x 最好采用最新版本的JDK</li>
+<li>Tomcat: 6.x    请不要使用tomcat5.5的安装版</li>
+<li>数据库:    支持SQL Server和Oracle, 如果需要切换数据库请看后面部分: <em>更换数据库环境</em>
+<ul><li><strong>SQLServer</strong>:    修改oracleDriver_mssql2005.properties 中的配置</li>
+<li><strong>Oracle</strong>:   修改oracleDriver.properties 中的配置</li></ul></li>
+</ol>
+
+<h1>This is a demo page</h1>
+
+<pre><code>var fuck = '方滨兴';
+console.log(fuck == 404);
+// true
+</code></pre>
+</div>
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"jinyang"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- Duoshuo Comment END -->
+</div>
+</div>
+<div id="foot">
+	<p>&copy; 2012
+		<img src="../image/sina_logo_16.png" alt="LOGO_16x16.png">
+		<a href="http://weibo.com/lambsand"  target="_blank">@金氧</a>
+		| Powered by <a href="https://github.com/lambgao/solo"  target="_blank">Solo</a></p>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = 'toobug';
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		
+</body>
+</html>
