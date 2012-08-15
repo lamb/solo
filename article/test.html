@@ -13,46 +13,29 @@
 	<script src="../javascript/index.js"></script>
 </head>
 <body>
-<div id="nav">
-	<ul>
-		<li><a href="../index.html">Index</a></li>
-		<li><a href="../index.html">Blogs</a></li>
-		<li><a href="../about.html">About</a></li>
-	</ul>
-</div>
+<header>
+	<div id="logo">TooBug</div>
+	<nav>
+		<ul>
+			<li><a href="../index.html">Index<br />首页</a></li>
+			<li><a href="../index.html">Blogs<br />博客</a></li>
+			<li><a href="../about.html">About<br />关于</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="sidebar">
+	<div id="intro">
+		<p><strong>TooBug</strong>，前端工程师，目前就职于<a href="http://cdc.tencent.com" target="_blank">腾讯CDC</a>。关注体验设计，关注大前端生态圈。</p>
+		<p>新浪微博：<a href="http://weibo.com/toooobug">@TooBug</a></p>
+		<p>腾讯微博：<a href="http://t.qq.com/TooBug">@TooBug</a></p>
+		<p>GitHub：<a href="https://github.com/toooobug">@TooBug</a></p>
+	</div>
+</section>
 
-<div id="head">
-<h1>TooBug</h1>
-<h2>专注前端开发</h2>
-</div>
 
-<div class="main">
-<div id="right">
-<img id="miga" src="../image/miga_256x256.png" alt="miga_256x256.png">
-<h3>友情链接</h3>
-<ul>
-    <li>
-        <a href="http://lamb.b3log.org/" title="沉默<>羔羊" target="_blank">
-            <img alt="lamb" src="http://www.google.com/s2/u/0/favicons?domain=lamb.b3log.org">
-        </a>
-        <a href="http://lamb.b3log.org/" title="沉默<>羔羊" target="_blank">
-            沉默<>羔羊
-        </a>
-    </li>
-    <li>
-        <a href="http://www.nodeclipse.org/" title="nodeclipse" target="_blank">
-            <img alt="nodeclipse" src="http://www.google.com/s2/u/0/favicons?domain=www.nodeclipse.org">
-        </a>
-        <a href="http://www.nodeclipse.org/" title="nodeclipse" target="_blank">
-            nodeclipse
-        </a>
-    </li>
-</ul>
-</div>
-
-<div id="content">
-<div id="article">
-<h1>这是文章的标题</h1>
+<section id="content">
+	<div id="article">
+	<h1>这是文章的标题</h1>
 
 <h2>2012-07-19 16:56</h2>
 
@@ -113,39 +96,23 @@ fs.watch(__dirname, function (event, filename) {
 console.log(fuck == 404);
 // true
 </code></pre>
-</div>
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-    var duoshuoQuery = {short_name:"jinyang"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = 'http://static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- Duoshuo Comment END -->
-</div>
-</div>
+	</div>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'toobug';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</section>
 <div id="foot">
-	<p>&copy; 2012
-		<img src="../image/sina_logo_16.png" alt="LOGO_16x16.png">
-		<a href="http://weibo.com/lambsand"  target="_blank">@金氧</a>
-		| Powered by <a href="https://github.com/lambgao/solo"  target="_blank">Solo</a></p>
+		<p>Powered by <a href="https://github.com/TooooBug/solo"  target="_blank">Solo</a></p>
 </div>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-	var disqus_shortname = 'toobug';
-	(function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 		
 </body>
 </html>
