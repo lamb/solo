@@ -6,11 +6,11 @@
 	<meta name="keywords" content="<%=config.blogKeywords%>" />
 	<title><%=config.blogName%></title>
 	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
-	<link rel="stylesheet" href="../skin/<%=config.blogSkin%>/css/light.css" />
-	<link rel="stylesheet" href="../js/prettify/prettify.css"   />
-	<script src="../js/prettify/prettify.js"></script>
-	<script src="../js/jquery/jquery-1.7.2.min.js"></script>
-	<script src="../js/index.js"></script>
+	<link rel="stylesheet" href="./skin/<%=config.blogSkin%>/css/light.css" />
+	<link rel="stylesheet" href="./js/prettify/prettify.css"   />
+	<script src="./js/prettify/prettify.js"></script>
+	<script src="./js/jquery/jquery-1.7.2.min.js"></script>
+	<script src="./js/index.js"></script>
 </head>
 <body>
 <header>
@@ -35,7 +35,9 @@
 
 <section id="content">
 	<div id="article">
-	${article}
+		<%for(var i=0;i<article.length;i++){%>
+			<%=article[i]%>
+		<%}%>
 	</div>
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">

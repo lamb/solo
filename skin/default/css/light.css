@@ -56,7 +56,7 @@ header nav ul li a {
 header nav ul li a:hover {
   top: -50px;
   text-shadow: 1px 1px 3px #ccc;
-  color: #077ea3;
+  color: #0099ff;
 }
 #sidebar {
   float: left;
