@@ -130,6 +130,9 @@ header nav ul li a:hover {
   /* TODO: 供着重号使用 */
 
 }
+#content #article p {
+  text-indent: 2.2em;
+}
 #content #article h1 {
   padding-left: 20px;
   border-left: 3px solid #0099ff;
