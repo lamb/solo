@@ -36,19 +36,16 @@
 <section id="content">
 	<div id="article">
 		<%for(var i=0;i<article.length;i++){%>
+			<div class="indexarticle">
 			<%=article[i]%>
+			</div>
 		<%}%>
-	</div>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-		var disqus_shortname = 'toobug';
-		(function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		<div id="pagination">
+		<%for(var i=0;i<pagecount;i++){%>
+			<a href="index<%if(i!==0){%>_page<%=i+1%><%}%>.html"><%=i+1%></a>
+		<%}%>
+		</div>
 	</div>
 </section>
 <div id="foot">

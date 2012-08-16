@@ -16,7 +16,7 @@ ul {
   font-style: normal;
 }
 body {
-  background: #eeeeee;
+  background: #f4f4f4;
   color: #333333;
   min-width: 960px;
 }
@@ -74,7 +74,17 @@ header nav ul li a:hover {
   background: #fff;
   padding: 20px;
 }
+#content .indexarticle {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dddddd;
+}
 #content #article {
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  /*以下为typo.css样式*/
+
   /* 去掉各Table  cell 的边距并让其边重�?*/
 
   /* 去除默认边框 */
@@ -119,6 +129,18 @@ header nav ul li a:hover {
 
   /* TODO: 供着重号使用 */
 
+}
+#content #article h1 {
+  padding-left: 20px;
+  border-left: 3px solid #0099ff;
+}
+#content #article #pagination {
+  text-align: right;
+}
+#content #article #pagination a {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #dddddd;
 }
 #content #article button,
 #content #article input,
