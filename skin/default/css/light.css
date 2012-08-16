@@ -240,7 +240,7 @@ header nav ul li a:hover {
 #content #article pre {
   border: 1px solid #ddd;
   border-left-width: 0.4em;
-  background: #fbfbfb;
+  background: #000;
   padding: 10px;
 }
 #content #article small {
