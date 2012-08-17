@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+ul {
+  list-style: none;
+}
+@font-face {
+  font-family: "HUL";
+  src: url("../fonts/HelveticaUltraLight.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background: #f4f4f4;
+  color: #333333;
+  min-width: 960px;
+}
+header {
+  font-family: "HUL", "microsoft yahei";
+  padding: 50px 20px;
+  border-bottom: 1px solid #dddddd;
+}
+header #logo {
+  font-size: 48px;
+  text-shadow: 1px 1px 3px #888;
+  display: inline-block;
+}
+header nav {
+  float: right;
+  text-align: right;
+  display: inline-block;
+}
+header nav ul {
+  display: inline-block;
+}
+header nav ul li {
+  display: inline-block;
+  font-size: 30px;
+  height: 50px;
+  overflow: hidden;
+}
+header nav ul li a {
+  position: relative;
+  width: 100px;
+  line-height: 50px;
+  display: block;
+  text-align: center;
+  -webkit-transition: color .5s;
+  -webkit-transition: top .5s;
+}
+header nav ul li a:hover {
+  top: -50px;
+  text-shadow: 1px 1px 3px #ccc;
+  color: #0099ff;
+}
+#sidebar {
+  float: left;
+  width: 210px;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+#sidebar p {
+  margin-bottom: 10px;
+}
+#content {
+  margin-left: 250px;
+  border-left: 1px solid #dddddd;
+  color: #555;
+  background: #fff;
+  padding: 20px;
+}
+#content .indexarticle {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+#content #article {
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  /*以下为typo.css样式*/
+
+  /* 去掉各Table  cell 的边距并让其边重�?*/
+
+  /* 去除默认边框 */
+
+  /* �?段落引用 */
+
+  /* Firefox 以外，元素没有下划线，需添加 */
+
+  /* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌�?*/
+
+  /* 一致的 del 样式 */
+
+  /* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当�?*/
+
+  /* 对齐是排版最重要的因�? 别让什么都居中 */
+
+  /* 统一上标和下�?*/
+
+  /* 让链接在 hover 状态下显示下划�?*/
+
+  /* 默认不显示下划线，保持页面简�?*/
+
+  /* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的�?		 * 要做到更好，向后兼容的话，添�?class="typo-u" 来显示专名号
+		 * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
+		 * 被放弃的�?4，之前一直搞�?http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
+		 * 一篇关�?<u> 标签的很好文章：http://html5doctor.com/u-element/ 
+		 */
+
+  /* 标记，类似于手写的荧光笔的作�?*/
+
+  /* 代码片断 */
+
+  /* 底部印刷体、版本等标记 */
+
+  /* 保证�?段落之间的空白隔�?*/
+
+  /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优�?*/
+
+  /* 在文章中，应该还�?ul �?ol 的样�?*/
+
+  /* �?ul/ol，在文章中应�?table 基本格式 */
+
+  /* TODO: 供着重号使用 */
+
+}
+#content #article p {
+  text-indent: 2.2em;
+}
+#content #article h1 {
+  padding-left: 20px;
+  border-left: 3px solid #0099ff;
+}
+#content #article h3 {
+  background: #CCC;
+  margin: 20px 0;
+  padding: 0 20px;
+  border-left: 2px solid #490;
+}
+#content #article .articlemore {
+  text-align: right;
+}
+#content #article .articlemore a {
+  display: inline-block;
+  padding: 5px 20px;
+  border-left: 2px solid #0099ff;
+}
+#content #article .articlemore a:hover {
+  color: #0099ff;
+}
+#content #article #pagination {
+  text-align: right;
+}
+#content #article #pagination a {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #dddddd;
+}
+#content #article button,
+#content #article input,
+#content #article select,
+#content #article textarea {
+  font: 500 14px/1.8 'Hiragino Sans GB', sans-serif;
+}
+#content #article table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#content #article fieldset,
+#content #article img {
+  border: 0;
+}
+#content #article blockquote {
+  margin: 1em 4em 1em 2em;
+  padding: 0.6em 1em;
+  background: #f1f1f1;
+}
+#content #article blockquote blockquote {
+  padding: 0 0 0 1em;
+  margin-left: 2em;
+  border-left: 0.4em solid #ddd;
+}
+#content #article acronym,
+#content #article abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+#content #article abbr {
+  cursor: help;
+}
+#content #article del {
+  text-decoration: line-through;
+}
+#content #article address,
+#content #article caption,
+#content #article cite,
+#content #article code,
+#content #article den,
+#content #article em,
+#content #article th,
+#content #article var {
+  font-style: normal;
+  font-weight: 500;
+}
+#content #article ul,
+#content #article ol {
+  list-style: none;
+}
+#content #article caption,
+#content #article th {
+  text-align: left;
+}
+#content #article q:before,
+#content #article q:after {
+  content: '';
+}
+#content #article sub,
+#content #article sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: text-top\9;
+}
+#content #article :root sub,
+#content #article :root sup {
+  vertical-align: baseline;
+  /* for ie9 and other mordern browsers */
+
+}
+#content #article sup {
+  top: -0.5em;
+}
+#content #article sub {
+  bottom: -0.25em;
+}
+#content #article a:hover {
+  text-decoration: underline;
+}
+#content #article ins,
+#content #article a {
+  text-decoration: none;
+}
+#content #article u,
+#content #article .typo-u {
+  text-decoration: underline;
+}
+#content #article mark {
+  background: #fffdd1;
+}
+#content #article pre,
+#content #article code {
+  font-family: "Courier New", Courier, monospace;
+}
+#content #article pre {
+  border: 1px solid #ddd;
+  border-left-width: 0.4em;
+  background: #000;
+  padding: 10px;
+}
+#content #article small {
+  font-size: 12px;
+  color: #888;
+}
+#content #article .clearfix:before,
+#content #article .clearfix:after {
+  content: "";
+  display: table;
+}
+#content #article .clearfix:after {
+  clear: both;
+}
+#content #article .clearfix {
+  zoom: 1;
+}
+#content #article p,
+#content #article pre,
+#content #article ul,
+#content #article ol,
+#content #article dl,
+#content #article form,
+#content #article hr,
+#content #article table {
+  margin-bottom: 1em;
+}
+#content #article h1,
+#content #article h2,
+#content #article h3,
+#content #article h4,
+#content #article h5,
+#content #article h6 {
+  font-weight: 500;
+  font-weight: 800\9;
+  color: #333;
+}
+#content #article h1,
+#content #article h2,
+#content #article h3,
+#content #article h4,
+#content #article h5,
+#content #article h6 {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
+}
+#content #article h1 {
+  font-size: 1.8em;
+}
+#content #article h2 {
+  font-size: 1.6em;
+}
+#content #article h3 {
+  font-size: 1.4em;
+}
+#content #article h4 {
+  font-size: 1.2em;
+}
+#content #article h5,
+#content #article h6 {
+  font-size: 1em;
+}
+#content #article ul {
+  margin-left: 1.3em;
+  list-style: disc;
+}
+#content #article ol {
+  list-style: decimal;
+  margin-left: 1.9em;
+}
+#content #article li ul,
+#content #article li ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 2em;
+}
+#content #article li ul {
+  list-style: circle;
+}
+#content #article table th,
+#content #article table td {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+#content #article table th {
+  background: #fbfbfb;
+}
+#content #article table thead th {
+  background: #f1f1f1;
+}
+#content #article em {
+  font-weight: 700;
+}
+#foot {
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid #dddddd;
+  padding: 20px 0;
+}
