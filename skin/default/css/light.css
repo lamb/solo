@@ -138,6 +138,9 @@ header nav ul li a:hover {
   padding-left: 20px;
   border-left: 3px solid #0099ff;
 }
+#content #article h1 a:link {
+  border: 0 none;
+}
 #content #article h3 {
   background: #CCC;
   margin: 20px 0;
@@ -147,12 +150,13 @@ header nav ul li a:hover {
 #content #article .articlemore {
   text-align: right;
 }
-#content #article .articlemore a {
+#content #article .articlemore a:link {
   display: inline-block;
   padding: 5px 20px;
+  border: 0 none;
   border-left: 2px solid #0099ff;
 }
-#content #article .articlemore a:hover {
+#content #article .articlemore a:link:hover {
   color: #0099ff;
 }
 #content #article #pagination {
@@ -247,6 +251,14 @@ header nav ul li a:hover {
 #content #article a {
   text-decoration: none;
 }
+#content #article a:link {
+  border-bottom: 1px dashed;
+  padding-bottom: 3px;
+}
+#content #article a:hover {
+  text-decoration: none;
+  color: #0099ff;
+}
 #content #article u,
 #content #article .typo-u {
   text-decoration: underline;
@@ -260,9 +272,9 @@ header nav ul li a:hover {
 }
 #content #article pre {
   border: 1px solid #ddd;
-  border-left-width: 0.4em;
   background: #000;
   padding: 10px;
+  margin-left: 2.2em;
 }
 #content #article small {
   font-size: 12px;
@@ -327,9 +339,11 @@ header nav ul li a:hover {
 #content #article ul {
   margin-left: 1.3em;
   list-style: disc;
+  list-style-position: inside;
 }
 #content #article ol {
   list-style: decimal;
+  list-style-position: inside;
   margin-left: 1.9em;
 }
 #content #article li ul,

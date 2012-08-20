@@ -105,6 +105,9 @@ header {
 		h1{
 			padding-left:20px;
 			border-left:3px solid @titlebordercolor;
+			a:link{
+				border:0 none;
+			}
 		}
 		h3{
 			background: #CCC;
@@ -114,9 +117,10 @@ header {
 		}
 		.articlemore{
 			text-align:right;
-			a{
+			a:link{
 				display:inline-block;
 				padding:5px 20px;
+				border:0 none;
 				border-left:2px solid @navhovercolor;
 				&:hover{
 					color:@navhovercolor;
@@ -222,6 +226,16 @@ header {
 			text-decoration: none;
 		}
 
+		a:link{
+			border-bottom: 1px dashed;
+			padding-bottom: 3px;
+		}
+
+		a:hover{
+			text-decoration: none;
+			color:@navhovercolor;
+		}
+
 		/* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
 		 * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
 		 * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
@@ -243,9 +257,10 @@ header {
 		}
 		pre {
 			border: 1px solid #ddd;
-			border-left-width: 0.4em;
+			//border-left-width: 0.4em;
 			background: #000;
 			padding: 10px;
+			margin-left:2.2em;
 		}
 
 		/* 底部印刷体、版本等标记 */
@@ -303,9 +318,11 @@ header {
 		ul{
 			margin-left: 1.3em;
 			list-style: disc;
+			list-style-position: inside;
 		}
 		ol{
 			list-style: decimal;
+			list-style-position: inside;
 			margin-left: 1.9em;
 		}
 		li ul, li ol{
