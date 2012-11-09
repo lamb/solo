@@ -1,8 +1,43 @@
-# solo(独唱团)这是一个由Node构建的静态博客
+# [消除你对Wind.js的疑虑 ](article/dispel-your-windjs's-doubts.html)
+## 2012-08-13 23:52
+
+### eval is (always) evil
+
+> eval大概也算是整个ECMAScript语言中最强大的一个方法，
+他就像是一个完整的ECMAScript解析器。你说它evil,我也承认这个
+方法会存在危险，有可能带来安全问题，特别是在用它执行用户输入
+数据的情况下。但Wind.js是用eval来运行已经“编译”后的代码，
+让你更舒服顺畅的来编写异步回调的代码。这些代码是你自己写的，
+所以不必担心代码注入、跨站脚本攻击这样的安全问题。没有这这个
+困扰和担忧，我相信eval应该是美好的。
+
+### API太丑，eval为什么不封装？
+
+> 通过eval执行的代码是被认为是包含该次调用的执行环境的一部分，
+因此被执行的代码具有与该执行环境有着相同的作用域链。
+
+	var Wind = require("wind");
+	
+	var msg = 'hello world';
+	eval("console.log(msg)");//hello world
+	
+	var msg = 'hello world';
+	var newFunc = eval(Wind.compile("async", function () { 
+		console.log(msg);
+	}));
+	newFunc().start();//hello world
+
+> 变量msg是在eval外定义的，但eval中还是能够打印"hello world"。
+如果包装起来如法访问到msg这个变量。
+
+## [Read More](article/dispel-your-windjs's-doubts.html)
+
+# [solo(独唱团)这是一个由Node构建的静态博客](article/what-is-solo.html)
+## 2012-07-22 14:22
 
 + 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。
 + 你可以将他提交至GithubPages或者云端（七牛）或者一个Node服务器。
-+ 这里有示例:[Pages](http://jinyang.mynah.org/)[七牛](http://qiniu.mynah.org/)
++ 这里有示例:[Pages](http://jinyang.mynah.org/)  [七牛](http://qiniu.mynah.org/)
 
 ### 为什么会有这样一个静态博客
 
@@ -12,32 +47,5 @@
 + 不需要一个什么复杂的服务器，也不需要担心什么配额，可以托管html页面就可以
 + 不用为图片文件等外链来发愁，直接放到相应的目录下，一起上传即可
 
-### 如何部署
-
-+ 你可以在[这里](https://github.com/lambgao/solo)找到他。
-+ 如果你熟悉[Github Pages](http://pages.github.com/),可以直接Push到你的Pages仓库即可。
-+ 如果有一个Node服务器，那么你可以部署至你的服务器,启动app.js即可。
-+ 如果你有一个云端（七牛）服务，那么你可以上传至你的云端(运行lib/publish.js)。
-
-### 如何使用
-
-+ 你会发现根目录下md文件夹，这个里面存放的都是博客内容(markdown格式)。
-+ md下有article和page两个文件夹，从字面上就很容易理解，分别是文章和页面。
-+ md/article下面的文章在build之后会在article目录下生成同文件名的html页面
-+ md/page下面的页面在build之后会在根目录下生成同文件名的html页面
-+ 运行lib/build.js来build页面(请先安装[Node](http://www.nodejs.org/),并安装依赖npm install)
-
-###皮肤模板修改
-
-+ 你会发现根目录下skin文件夹,这个文件夹里面存放的都是皮肤模板(html文件)。
-+ 上面提到了article和page两种页面，那么皮肤模板也提供了article.html和page.html两个模板文件。
-+ 如果两个页面用到了共同的内容那么你可以把共同的内容提取出来放到skin/slot文件夹下。
-+ 在模板文件中${slot}就可以将这个文件引入到当前模板文件中。
-+ ${article}这个变量用于引入文章或者页面的内容，即md文件夹下生成的内容。
-+ 根目录下你还会发现css、image、javascript文件夹，这些是存放模板使用到的静态文件
-
-###有疑问或者...
-
-+ 如果你有疑问、建议、bug提交或者想说“我艹，这里怎么能这样”都可以找我。
-+ 找我请这里新浪微博[@金氧](http://weibo.com/lambsand),或这里Github[@lambgao](https://github.com/lambgao)
+## [Read More](article/what-is-solo.html)
 
