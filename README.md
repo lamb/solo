@@ -2,7 +2,7 @@
 
 + 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。
 + 你可以将他提交至GithubPages或者云端（七牛）或者一个Node服务器。
-+ 这里有示例:[Pages](http://jinyang.mynah.org/)[七牛](http://qiniu.mynah.org/)
++ 这里有示例:[Pages](http://jinyang.mynah.org/)[七牛](http://qiniu.mynah.org/)(由于备案问题现在不可访问)
 
 ### 为什么会有这样一个静态博客
 
@@ -38,6 +38,6 @@
 
 ###有疑问或者...
 
-+ 如果你有疑问、建议、bug提交或者想说“我艹，这里怎么能这样”都可以找我。
++ 如果你有疑问、建议、bug提交都可以找我
 + 找我请这里新浪微博[@金氧](http://weibo.com/lambsand),或这里Github[@lambgao](https://github.com/lambgao)
 
