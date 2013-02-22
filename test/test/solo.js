@@ -1,4 +1,5 @@
-var config = require('./config.json'),
+var fs = require('fs'),
+	config = require('./config.json'),
 	// build = require('./lib/build.js'),
 	copy = require('./lib/copy.js'),
 	// publish = require('./lib/publish'),
