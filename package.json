@@ -1,30 +1,24 @@
 {
     "name" : "solo",
-    "version" : "0.0.0",
-    "description" : "独唱团",
-    "main" : "app.js",
+    "version" : "2.0.0",
+    "description" : "基于Node.js的静态博客程序",
+    "main" : "solo.js",
     "dependencies": {
-        "node-markdown": "latest"
+        "jade": "0.28.1",
+        "markdown-js": "0.0.3"
     },
     "devDependencies": {
-        "mocha": "latest",
-        "chai": "latest"
+        
     },
     "scripts" : {
-        "test" : "test"
     },
     "repository" : {
-        "type" : "git",
-        "url" : "git@github.com:lambgao/solo.git"
     },
     "keywords" : [
         "blog",
         "solo",
-        "party",
-        "独唱团",
-        "node",
-        "github"
+        "node"
     ],
-    "author" : "lamb",
+    "author" : "TooBug",
     "license" : "MIT"
 }
