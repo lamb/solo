@@ -5,7 +5,8 @@
     "main" : "solo.js",
     "dependencies": {
         "jade": "0.28.1",
-        "markdown-js": "0.0.3"
+        "markdown-js": "0.0.3",
+        "moment": "2.0.0"
     },
     "devDependencies": {
         

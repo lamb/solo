@@ -2,12 +2,14 @@ var config = require('./config.json'),
 	// build = require('./lib/build.js'),
 	copy = require('./lib/copy.js'),
 	// publish = require('./lib/publish'),
+	coreParser = require('./lib/coreparser.js'),
 	action = process.argv.length>=2 ? process.argv[2] : '';
 
 console.log('Solo 2.0');
-console.log('action:'+action);
+coreParser.parse();	// 解析博客内容
+// console.log('action:'+action);
 
-console.log(copy);
+// console.log(copy);
 
 solo(action);
 
