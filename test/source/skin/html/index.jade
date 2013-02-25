@@ -6,11 +6,11 @@ html
 		meta(name="keywords", content="#{blogKeywords}")
 		title #{blogName}
 		link(type="image/x-icon", rel="shortcut icon", href="/favicon.ico")
-		link(rel="stylesheet", href="./css/light.css")
-		link(rel="stylesheet", href="./js/prettify.css")
-		script(src="./js/prettify/prettify.js")
-		script(src="./js/jquery/jquery-1.7.2.min.js")
-		script(src="./js/index.js")
+		link(rel="stylesheet", href="../css/light.css")
+		link(rel="stylesheet", href="../js/prettify.css")
+		script(src="../js/prettify/prettify.js")
+		script(src="../js/jquery/jquery-1.7.2.min.js")
+		script(src="../js/index.js")
 	body
 		header
 			div#logo
@@ -18,9 +18,9 @@ html
 		nav
 			ul
 				li
-					a(href="./index.html") Index<br />首页
+					a(href="../index.html") Index<br />首页
 				li
-					a(href="./about.html") About<br />关于
+					a(href="../about.html") About<br />关于
 
 		section#sidebar
 			div#intro
@@ -33,19 +33,21 @@ html
 				p
 					| GitHub：<a href="https://github.com/toooobug" target="_blank">@TooBug</a>
 
+
 		section#content
 			div#article
-				| !{content}
-			div#disqus_thread
-			script
-				var disqus_shortname = 'toobug';
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			noscript
-				Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+				for blog in blogList
+					div.indexarticle
+						| !{blog.summary}
+
+		div#pagination
+			- for(var i=0;i<pageCount;i++){
+				- if(i)
+					- var str='_page'+(i+1);
+				- else
+					- var str = '';
+				<a href="index#{str}.html">#{i+1}</a>
+			- }
 
 		div#foot
 			p

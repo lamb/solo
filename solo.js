@@ -9,7 +9,7 @@ var config = require('./config.json'),
 console.log('Solo 2.0');
 
 global.config = config;
-console.log(global.config);
+// console.log(global.config);
 
 coreParser.parse();	// 解析博客内容
 _dealPlugins();	// 处理插件
