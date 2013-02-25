@@ -1,6 +1,11 @@
 {
     "blogName": "Solo",
+    "blogKeywords": "TooBug,web前端,前端,HTML,CSS,JavaScript,js",
+	"blogDescription" : "TooBug - 专注前端开发",
+
 
     "sourcePath": "./test/source",
-    "distPath": "./test/www"
+    "distPath": "./test/www",
+    "skinPath": "./test/source/skin"
+
 }

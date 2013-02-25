@@ -1,4 +1,5 @@
 var config = require('./config.json'),
+	util = require('./lib/util.js'),
 	// build = require('./lib/build.js'),
 	copy = require('./lib/copy.js'),
 	// publish = require('./lib/publish'),
@@ -6,12 +7,14 @@ var config = require('./config.json'),
 	action = process.argv.length>=2 ? process.argv[2] : '';
 
 console.log('Solo 2.0');
+
+global.config = config;
+console.log(global.config);
+
 coreParser.parse();	// 解析博客内容
-// console.log('action:'+action);
+_dealPlugins();	// 处理插件
 
-// console.log(copy);
-
-solo(action);
+// solo(action);
 
 function solo(action){
 
@@ -75,3 +78,21 @@ function solo(action){
 	}
 
 }
+
+function _dealPlugins(){
+
+	var pluginFileList = util.readdirSyncRecursive('./lib/plugins'),
+		plugins = [];
+
+	pluginFileList.forEach(function(plugin){
+
+		if(/\.js$/.test(plugin)){
+			var pluginName = plugin.replace(/\.js$/,'');
+			plugins[pluginName] = require('./lib/plugins/'+plugin);
+			plugins[pluginName]();
+		}
+
+	});
+
+}
+// 以下为测试
