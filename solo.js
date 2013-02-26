@@ -1,7 +1,7 @@
 var config = require('./config.json'),
 	util = require('./lib/util.js'),
 	// build = require('./lib/build.js'),
-	copy = require('./lib/copy.js'),
+	// copy = require('./lib/copy.js'),
 	// publish = require('./lib/publish'),
 	coreParser = require('./lib/coreparser.js'),
 	action = process.argv.length>=2 ? process.argv[2] : '';
