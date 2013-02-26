@@ -4,7 +4,11 @@
 }
 a {
   text-decoration: none;
-  color: #333333;
+  color: #888;
+  -webkit-transition:color .5s;
+}
+a:hover {
+  color:#37B8FF;
 }
 ul {
   list-style: none;
@@ -16,19 +20,25 @@ ul {
   font-style: normal;
 }
 body {
-  background: #f4f4f4;
-  color: #333333;
+  background: #F9F9F9;
+  color: #888;
   min-width: 960px;
+  margin: 0 100px;
 }
 header {
   font-family: "HUL", "microsoft yahei";
-  padding: 50px 20px;
-  border-bottom: 1px solid #dddddd;
+  padding: 20px 20px 10px 20px;
+  box-shadow: 0 1px #37B8FF;
+  /*border-bottom: 1px solid #dddddd;*/
 }
 header #logo {
   font-size: 48px;
-  text-shadow: 1px 1px 3px #888;
+  text-shadow: 1px 1px #eee;
   display: inline-block;
+}
+header #logo .subTitle{
+  font-size: 24px;
+  padding-left: 30px;
 }
 header nav {
   float: right;
@@ -55,91 +65,56 @@ header nav ul li a {
 }
 header nav ul li a:hover {
   top: -50px;
-  text-shadow: 1px 1px 3px #ccc;
-  color: #0099ff;
+  /*text-shadow: 1px 1px 3px #ccc;*/
+  color: #37B8FF;
 }
 #sidebar {
   float: left;
-  width: 210px;
+  width: 200px;
   padding: 20px;
   font-size: 14px;
   line-height: 1.5em;
+  margin:25px 10px 0 0;
+  background: #f0f0f0;
+  text-shadow:1px 1px #e9e9e9;
+  position:-webkit-sticky;
 }
 #sidebar p {
   margin-bottom: 10px;
 }
 #content {
   margin-left: 250px;
-  border-left: 1px solid #dddddd;
+  /*border-left: 1px solid #dddddd;*/
   color: #555;
-  background: #fff;
-  padding: 20px;
+  /*background: #fff;*/
+  padding: 0 20px;
+  margin-top: 25px;
 }
 #content .indexarticle {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
   border-bottom: 1px solid #dddddd;
 }
 #content #article {
   font-size: 14px;
-  line-height: 1.5em;
+  line-height: 2em;
   letter-spacing: 0.1em;
-  /*以下为typo.css样式*/
-
-  /* 去掉各Table  cell 的边距并让其边重�?*/
-
-  /* 去除默认边框 */
-
-  /* �?段落引用 */
-
-  /* Firefox 以外，元素没有下划线，需添加 */
-
-  /* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌�?*/
-
-  /* 一致的 del 样式 */
-
-  /* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当�?*/
-
-  /* 对齐是排版最重要的因�? 别让什么都居中 */
-
-  /* 统一上标和下�?*/
-
-  /* 让链接在 hover 状态下显示下划�?*/
-
-  /* 默认不显示下划线，保持页面简�?*/
-
-  /* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的�?		 * 要做到更好，向后兼容的话，添�?class="typo-u" 来显示专名号
-		 * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
-		 * 被放弃的�?4，之前一直搞�?http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
-		 * 一篇关�?<u> 标签的很好文章：http://html5doctor.com/u-element/ 
-		 */
-
-  /* 标记，类似于手写的荧光笔的作�?*/
-
-  /* 代码片断 */
-
-  /* 底部印刷体、版本等标记 */
-
-  /* 保证�?段落之间的空白隔�?*/
-
-  /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优�?*/
-
-  /* 在文章中，应该还�?ul �?ol 的样�?*/
-
-  /* �?ul/ol，在文章中应�?table 基本格式 */
-
-  /* TODO: 供着重号使用 */
-
 }
 #content #article p {
   text-indent: 2.2em;
 }
 #content #article h1 {
   padding-left: 20px;
-  border-left: 3px solid #0099ff;
+  border-left: 3px solid #37B8FF;
 }
 #content #article h1 a:link {
   border: 0 none;
+}
+#content #article h1 .pubDate{
+  float: right;
+  font-size: 18px;
+  line-height: 30px;
+  color: #888;
 }
 #content #article h3 {
   background: #CCC;
@@ -372,6 +347,6 @@ header nav ul li a:hover {
 #foot {
   font-size: 12px;
   text-align: center;
-  border-top: 1px solid #dddddd;
-  padding: 20px 0;
+  /*border-top: 1px solid #dddddd;*/
+  padding: 50px 0 20px 0;
 }

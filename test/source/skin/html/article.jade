@@ -16,6 +16,7 @@ html
 		header
 			div#logo
 				a(href="/") #{blogName}
+				span.subTitle #{blogSubTitle}
 			nav
 				ul
 					li
@@ -36,9 +37,9 @@ html
 
 		section#content
 			div#article
-				h1 #{title}
-				p
-					em #{pubDate}
+				h1
+					| #{title}
+					em.pubDate #{pubDate}
 				| !{content}
 
 		//	
