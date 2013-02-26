@@ -6,6 +6,7 @@ html
 		meta(name="keywords", content="#{blogKeywords}")
 		title #{blogName}
 		link(type="image/x-icon", rel="shortcut icon", href="/favicon.ico")
+		link(rel="alternate", type="application/rss+xml", title="TooBug", href="./rss/rss.xml")
 		link(rel="stylesheet", href="../css/light.css")
 		link(rel="stylesheet", href="../js/prettify/prettify.css")
 		script(src="../js/prettify/prettify.js")
@@ -39,6 +40,8 @@ html
 				p
 					em #{pubDate}
 				| !{content}
+
+		//	
 			div#disqus_thread
 			script
 				var disqus_shortname = 'toobug';

@@ -87,6 +87,7 @@ function _dealPlugins(){
 	pluginFileList.forEach(function(plugin){
 
 		if(/\.js$/.test(plugin)){
+			// console.log(global.blog);
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/plugins/'+plugin);
 			plugins[pluginName]();
