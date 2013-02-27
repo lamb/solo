@@ -13,7 +13,10 @@
   "bin": {
     "toosolo": "solo.js"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TooooBug/solo.git"
+  },
   "keywords": [
     "blog",
     "solo",
