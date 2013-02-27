@@ -1,25 +1,33 @@
 {
-    "name" : "solo",
-    "version" : "2.0.0",
-    "description" : "基于Node.js的静态博客程序",
-    "main" : "solo.js",
-    "dependencies": {
-        "jade": "0.28.1",
-        "markdown-js": "0.0.3",
-        "moment": "2.0.0"
-    },
-    "devDependencies": {
-        
-    },
-    "scripts" : {
-    },
-    "repository" : {
-    },
-    "keywords" : [
-        "blog",
-        "solo",
-        "node"
-    ],
-    "author" : "TooBug",
-    "license" : "MIT"
+  "name": "toosolo",
+  "version": "2.0.1",
+  "description": "基于Node.js的静态博客程序",
+  "main": "solo.js",
+  "dependencies": {
+    "jade": "0.28.1",
+    "markdown-js": "0.0.3",
+    "moment": "2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "bin": {
+    "toosolo": "solo.js"
+  },
+  "repository": {},
+  "keywords": [
+    "blog",
+    "solo",
+    "node"
+  ],
+  "author": {
+    "name": "TooBug"
+  },
+  "license": "MIT",
+  "readme": "# solo 是一个由Node构建的静态博客\n\n- 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。\n- 你可以将他提交至Github Pages等任何网站空间。\n- 示例:<http://solo.toobug.net>\n\n## 2.0 预览版特性\n\n- 程序、源文件、构建结果完全分离，托管时只需要上传构建结果即可\n- 全插件构架，可以任意扩展你需要的功能（标签、分类、RSS等等）\n\n",
+  "readmeFilename": "README.md",
+  "_id": "toosolo@2.0.0",
+  "dist": {
+    "shasum": "cd0188ba4fed8ed6c2a1425b998f1c0219ef799a"
+  },
+  "_from": "."
 }
