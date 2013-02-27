@@ -13,7 +13,6 @@ var path = require('path'),
 if(!config.skinPath){
 	config.skinPath = path.join(__dirname,'./skin');
 }
-
 global.config = config;
 // console.log(global.config);
 console.log('\n==================== Solo 2.0 ====================\n');
