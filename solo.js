@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var path = require('path'),
-	config = require(process.cwd() + '/config.json'),
+	config = require(path.resolve(process.cwd() + '/config.json')),
 	util = require('./lib/util.js'),
 	// build = require('./lib/build.js'),
 	// copy = require('./lib/copy.js'),
