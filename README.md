@@ -30,7 +30,7 @@
 	{
 
 		"blogName" : "SOLO",
-		"blogSubTime" : "Life is Solo..."
+		"blogSubTime" : "Life is Solo...",
 		"blogKeywords" : "SOLO,Blog,Node,博客",
 		"blogDescription" : "TooBug - 专注前端开发",
 
