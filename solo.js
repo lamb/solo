@@ -23,69 +23,6 @@ _dealPlugins();	// 处理插件
 console.log('\n=================== 博客构建完成 ===================\n');
 // solo(action);
 
-function solo(action){
-
-	if(!action){
-		action = 'buildAll';
-	}
-
-	switch(action){
-
-		// 构建所有
-		case 'buildAll':
-
-			break;
-
-		// 构建文章
-		case 'buildArticle':
-
-			break;
-
-		// 构建pages
-		case 'buildPages':
-
-			break;
-
-		// 构建404
-		case 'build404':
-			break;
-
-		// 构建RSS
-		case 'buildRSS':
-			break;
-
-		// 复制公共文件
-		case 'copyGlobalFiles':
-
-			copy.copyGlobalFiles();
-
-			break;
-
-		// 复制图片
-		case 'copyImages':
-
-			break;
-
-		// 复制附件
-		case 'copyAttachments':
-
-			break;
-
-		// 复制模板文件
-		case 'copyTemplateFiles':
-
-			break;
-
-		// 发布到github
-		case 'publishToGithub':
-
-			break;
-
-
-	}
-
-}
-
 function _dealPlugins(){
 
 	var pluginFileList = util.readdirSyncRecursive(path.join(__dirname,'./lib/plugins')),
