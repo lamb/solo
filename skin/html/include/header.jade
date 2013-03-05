@@ -6,5 +6,6 @@ header
 		ul
 			li
 				a(href="/index.html") Index<br />首页
-			li
-				a(href="/page/about.html") About<br />关于
+			for page in pages
+				li
+					a(href="/page/#{page.url}.html") #{page.title}<br />#{page.title}
