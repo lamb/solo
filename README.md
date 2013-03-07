@@ -30,7 +30,7 @@
 	{
 
 		"blogName" : "SOLO",
-		"blogSubTime" : "Life is Solo...",
+		"blogSubTitle" : "Life is Solo...",
 		"blogKeywords" : "SOLO,Blog,Node,博客",
 		"blogDescription" : "TooBug - 专注前端开发",
 
@@ -50,6 +50,8 @@
 ### 更多
 
 如果有需要可以自定义皮肤，在`config.json`中添加一个配置项为`skinPath`即可。
+
+> 以下部分尚属于不稳定阶段，稍后放出皮肤自定义的功能。
 
 皮肤目录下的子目录说明
 
