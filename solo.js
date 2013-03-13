@@ -14,14 +14,30 @@ if(!config.skinPath){
 	config.skinPath = path.join(__dirname,'./skin');
 }
 global.config = config;
-// console.log(global.config);
-console.log('\n==================== Solo 2.0 ====================\n');
 
-coreParser.parse();	// 解析博客内容
-_dealPlugins();	// 处理插件
+switch(action){
 
-console.log('\n=================== 博客构建完成 ===================\n');
-// solo(action);
+case 'defineSkin':
+	
+	console.log('\n==================== Solo 2.0 ====================\n');
+
+	require('./lib/defineskin')();
+
+	console.log('\n=================== 皮肤复制完毕 ===================\n');
+
+	break;
+
+default:
+
+	console.log('\n==================== Solo 2.0 ====================\n');
+
+	coreParser.parse();	// 解析博客内容
+	_dealPlugins();	// 处理插件
+
+	console.log('\n=================== 博客构建完成 ===================\n');
+	break;
+}
+
 
 function _dealPlugins(){
 
@@ -40,4 +56,3 @@ function _dealPlugins(){
 	});
 
 }
-// 以下为测试
