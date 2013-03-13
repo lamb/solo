@@ -1,0 +1,18 @@
+!!!
+html
+	head
+		include ./include/head
+	body
+		include ./include/header
+		include ./include/sidebar
+
+		section#content
+			div#article
+				h1
+					| #{title}
+					em.pubDate #{pubDate}
+				| !{content}
+
+			include ./include/comments
+			
+		include ./include/footer

@@ -1,0 +1,20 @@
+!!! xml
+rss(version="2.0")
+	channel
+		title #{blogName}
+		link http://#{domain}
+		description #{blogDescription}
+		lastBuildDate #{pubDate}
+		generator Solo 2.0
+		- for blog in blogList
+			item
+				title #{blog.title}
+				link http://#{domain}/article/#{blog.url}.html
+				guid(isPermaLink="true") http://#{domain}/article/#{blog.url}.html
+				pubDate #{blog.pubDate}
+				- for tag in blog.tags
+					category #{tag}
+				description
+					| <![CDATA[
+					| !{blog.content}
+					| ]]>

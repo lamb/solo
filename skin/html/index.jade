@@ -1,0 +1,30 @@
+!!!
+html
+	head
+		include ./include/head
+	body
+		include ./include/header
+		include ./include/sidebar
+
+
+		section#content
+			div#article
+				for blog in blogList
+					div.indexarticle
+						h1
+							a(href="./article/#{blog.url}.html") #{blog.title}
+							em.pubDate #{blog.pubDate}
+						| !{blog.summary}
+						div.articlemore
+							a(href="./article/#{blog.url}.html") 继续阅读
+
+				div#pagination
+					- for(var i=0;i<pageCount;i++){
+						- if(i)
+							- var str='_page'+(i+1);
+						- else
+							- var str = '';
+						<a href="index#{str}.html">#{i+1}</a>
+					- }
+
+		include ./include/footer

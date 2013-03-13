@@ -1,0 +1,11 @@
+header
+	div#logo
+		a(href="/") #{blogName}
+		span.subTitle #{blogSubTitle}
+	nav
+		ul
+			li
+				a(href="/index.html") Index<br />首页
+			for page in pages
+				li
+					a(href="/page/#{page.url}.html") #{page.title}<br />#{page.title}

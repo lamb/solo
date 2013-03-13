@@ -1,43 +1,64 @@
-# solo(独唱团)这是一个由Node构建的静态博客
+# solo 是一个由Node构建的静态博客
 
-+ 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。
-+ 你可以将他提交至GithubPages或者云端（七牛）或者一个Node服务器。
-+ 这里有示例:[Pages](http://jinyang.mynah.org/)[七牛](http://qiniu.mynah.org/)
+- 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。
+- 你可以将他提交至Github Pages等任何网站空间。
+- 示例:<http://solo.toobug.net>
 
-### 为什么会有这样一个静态博客
+## 2.0 预览版特性
 
-+ 以前的博客不方便添加自己的demo例子页面(前端开发的童鞋应该会有强烈的认同感)
-+ markdown语法简洁易用，所见即所得的html编辑器不好用也太重
-+ 不依赖于数据库，所有的内容都是文本，方便管理和迁移
-+ 不需要一个什么复杂的服务器，也不需要担心什么配额，可以托管html页面就可以
-+ 不用为图片文件等外链来发愁，直接放到相应的目录下，一起上传即可
+- 程序、源文件、构建结果完全分离，托管时只需要上传构建结果即可
+- 全插件构架，可以任意扩展你需要的功能（标签、分类、RSS等等）
 
-### 如何部署
+> 目前版本只供预览，尚有未开发完（分类和pages的导航、皮肤的公共部分等）或者不稳定的部分。
 
-+ 你可以在[这里](https://github.com/lambgao/solo)找到他。
-+ 如果你熟悉[Github Pages](http://pages.github.com/),可以直接Push到你的Pages仓库即可。
-+ 如果有一个Node服务器，那么你可以部署至你的服务器,启动app.js即可。
-+ 如果你有一个云端（七牛）服务，那么你可以上传至你的云端(运行lib/publish.js)。
+## 用法说明
 
-### 如何使用
+###　安装
 
-+ 你会发现根目录下md文件夹，这个里面存放的都是博客内容(markdown格式)。
-+ md下有article和page两个文件夹，从字面上就很容易理解，分别是文章和页面。
-+ md/article下面的文章在build之后会在article目录下生成同文件名的html页面
-+ md/page下面的页面在build之后会在根目录下生成同文件名的html页面
-+ 运行lib/build.js来build页面(请先安装[Node](http://www.nodejs.org/),并安装依赖npm install)
+	npm install -g toosolo
 
-###皮肤模板修改
+### 准备源文件目录
 
-+ 你会发现根目录下skin文件夹,这个文件夹里面存放的都是皮肤模板(html文件)。
-+ 上面提到了article和page两种页面，那么皮肤模板也提供了article.html和page.html两个模板文件。
-+ 如果两个页面用到了共同的内容那么你可以把共同的内容提取出来放到skin/slot文件夹下。
-+ 在模板文件中${slot}就可以将这个文件引入到当前模板文件中。
-+ ${article}这个变量用于引入文章或者页面的内容，即md文件夹下生成的内容。
-+ 根目录下你还会发现css、image、javascript文件夹，这些是存放模板使用到的静态文件
+请准备一个目录作为博客源文件，里面包含博客、pages、公用的文件等等，具体包含内容如下：
 
-###有疑问或者...
+- `blogs`目录，用于存放博客文件（.md后缀），可以包含任意子目录。
+- `pages`目录，用于存放pages（.md后续），可以包含任意子目录。
+- `global`目录，用于存放其它放到站点根目录的文件，如robots.txt等。可包含子目录（比如文章中的图片放在images子目录，构建时会被复制为/images）。
 
-+ 如果你有疑问、建议、bug提交或者想说“我艹，这里怎么能这样”都可以找我。
-+ 找我请这里新浪微博[@金氧](http://weibo.com/lambsand),或这里Github[@lambgao](https://github.com/lambgao)
+### 准备config.json
+
+	{
+
+		"blogName" : "SOLO",
+		"blogSubTitle" : "Life is Solo...",
+		"blogKeywords" : "SOLO,Blog,Node,博客",
+		"blogDescription" : "TooBug - 专注前端开发",
+
+		"domain" : "solo.toobug.net",
+
+		"sourcePath" : "./source",
+		"distPath" : "./dist"
+
+	}
+
+其中`domain`不需要加`http://`和最后的`/`，`sourcePath`是上面准备的源文件的路径，`distPath`是构建结果的路径。所有路径相对于`config.json`。
+
+### 编译
+
+进入命令行，定位到`config.json`所在的目录，运行`toosolo`即可。
+
+### 更多
+
+如果有需要可以自定义皮肤，在`config.json`中添加一个配置项为`skinPath`即可。
+
+> 以下部分尚属于不稳定阶段，稍后放出皮肤自定义的功能。
+
+皮肤目录下的子目录说明
+
+- `html`目录，模板文件，使用`jade`模板引擎，目前包含`index.jade`，`page.jade`，`article.jade`三个文件。
+- 其它目录，直接被复制到站点根目录。
+
+编写模板时请注意路径，编译的结果中`index.html`在根目录，文章和pages分别在`/article`和`/page`目录。
+
+详细的皮肤编写指导稍后放出。
 
