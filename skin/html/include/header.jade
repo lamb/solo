@@ -6,9 +6,9 @@ header
 		ul
 			li
 				a(href="#{basePath}/index.html") Index<br />首页
-			for categoryItem in category
+			for categoryVal,categoryKey in category
 				li
-					a(href="#{basePath}/categories/#{categoryItem.url}.html") #{categoryItem.title}<br />#{categoryItem.title}
+					a(href="#{basePath}#{categoryVal.url}") #{categoryKey}<br />#{categoryKey}
 			for page in pages
 				li
 					a(href="#{basePath}/page/#{page.url}.html") #{page.title}<br />#{page.title}
