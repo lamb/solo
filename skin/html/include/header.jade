@@ -8,6 +8,7 @@ header
 				a(href="#{basePath}/index.html") Index<br />首页
 			for categoryVal,categoryKey in category
 				li
+					- console.log(categoryVal,categoryKey)
 					a(href="#{basePath}#{categoryVal.url}") #{categoryKey}<br />#{categoryKey}
 			for page in pages
 				li
