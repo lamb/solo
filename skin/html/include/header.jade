@@ -1,11 +1,15 @@
 header
 	div#logo
-		a(href="/") #{blogName}
+		a(href="#{basePath}/index.html") #{blogName}
 		span.subTitle #{blogSubTitle}
 	nav
 		ul
 			li
-				a(href="/index.html") Index<br />首页
+				a(href="#{basePath}/index.html") Index<br />首页
+			for categoryVal,categoryKey in category
+				li
+					- console.log(categoryVal,categoryKey)
+					a(href="#{basePath}#{categoryVal.url}") #{categoryKey}<br />#{categoryKey}
 			for page in pages
 				li
-					a(href="/page/#{page.url}.html") #{page.title}<br />#{page.title}
+					a(href="#{basePath}/page/#{page.url}.html") #{page.title}<br />#{page.title}
