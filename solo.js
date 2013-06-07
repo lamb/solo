@@ -46,6 +46,8 @@ function _dealPlugins(){
 
 	pluginFileList.forEach(function(plugin){
 
+		if(config.disabledPlugins && config.disabledPlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
+
 		if(/\.js$/.test(plugin)){
 			// console.log(global.blog);
 			var pluginName = plugin.replace(/\.js$/,'');
