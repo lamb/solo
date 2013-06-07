@@ -11,6 +11,8 @@ init();
 
 function init(){
 
+	var dfd = Q.when();
+
 	global.tooSolo = {};
 
 	if(!config.skinPath){
@@ -19,21 +21,26 @@ function init(){
 
 	global.tooSolo.config = config;
 
-	console.log('\n==================== Solo 2.0 ====================\n');
+	dfd = dfd.then(function(){
+		console.log('\n==================== Solo 2.0 ====================\n');
+	});
 
 	if(pluginName){	//如果指定了插件名字，则调用对应插件
 
-		require('./lib/plugins'+pluginName)();
+		dfd = dfd.then(function(){
+			require('./lib/plugins'+pluginName)();
+		});
+
 
 	}else{
 
-		coreParser.parse();	// 解析博客内容
-		_dealParserPlugins();	// 处理插件
-		_dealPagePlugins();	// 处理插件
+		dfd = dfd.then(coreParser.parse).then(_dealParserPlugins).then(_dealPagePlugins);
+		// dfd = dfd.then(coreParser.parse).then(_dealPagePlugins).then(_dealParserPlugins);
 
 	}
-
-	console.log('\n=================== 博客构建完成 ===================\n');
+	dfd = dfd.then(function(){
+		console.log('\n=================== 博客构建完成 ===================\n');
+	});
 	
 }
 
@@ -41,7 +48,8 @@ function _dealParserPlugins(){
 
 	var parserPluginFileList = util.readdirSyncRecursive(path.join(__dirname,'./lib/parserplugins')),
 		plugins = [],
-		dfd = Q.when();
+		pluginsDfd = Q.when(),
+		thisDfd = Q.defer();
 
 	parserPluginFileList.forEach(function(plugin){
 
@@ -51,19 +59,25 @@ function _dealParserPlugins(){
 
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/parserplugins/'+plugin);
-			dfd = dfd.then(plugins[pluginName]);
+			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
 			
 		}
 
 	});
+	pluginsDfd.done(function(){
+		thisDfd.resolve();
+	})
+
+	return thisDfd.promise;
 
 }
 
-function _dealPagePlugins(){
+function _dealPagePlugins(dfd){
 
 	var pagePluginFileList = util.readdirSyncRecursive(path.join(__dirname,'./lib/pageplugins')),
 		plugins = [],
-		dfd = Q.when();
+		pluginsDfd = Q.when(),
+		thisDfd = Q.defer();
 
 	pagePluginFileList.forEach(function(plugin){
 
@@ -73,10 +87,17 @@ function _dealPagePlugins(){
 
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/pageplugins/'+plugin);
-			dfd = dfd.then(plugins[pluginName]);
+			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
 			
 		}
 
+		
+
 	});
+	pluginsDfd.done(function(){
+		thisDfd.resolve();
+	})
+
+	return thisDfd.promise;
 
 }

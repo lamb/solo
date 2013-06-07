@@ -20,6 +20,16 @@ function syncFunc1(preData){
 
 }
 
+function syncFunc2(preData){
+
+	console.log('syncFunc2');
+
+	console.log(preData);
+
+	return 'I\'m done immediately.';
+
+}
+
 function asyncFunc2(preData){
 
 	console.log('asyncFunc2');
@@ -33,8 +43,11 @@ function asyncFunc2(preData){
 }
 
 
-Q.when(asyncFunc1()).then(syncFunc1).then(asyncFunc2).done(function(data){
+/*Q.when(asyncFunc1()).then(syncFunc1).then(asyncFunc2).done(function(data){
 
 	console.log(data);
 
 });
+*/
+
+Q.when(syncFunc1()).then(asyncFunc1()).then(asyncFunc2).then(syncFunc2);
