@@ -8,7 +8,8 @@
     "markdown-js": "0.0.3",
     "moment": "2.0.0",
     "pinyin": "0.0.1",
-    "toozip": "latest"
+    "toozip": "latest",
+    "q":"0.9.4"
   },
   "devDependencies": {},
   "scripts": {},
