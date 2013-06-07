@@ -29,7 +29,7 @@ function init(){
 
 		coreParser.parse();	// 解析博客内容
 		_dealParserPlugins();	// 处理插件
-		// _dealPagePlugins();	// 处理插件
+		_dealPagePlugins();	// 处理插件
 
 	}
 
@@ -50,7 +50,7 @@ function _dealParserPlugins(){
 		if(/\.js$/.test(plugin)){
 
 			var pluginName = plugin.replace(/\.js$/,'');
-			plugins[pluginName] = require('./lib/plugins/'+plugin);
+			plugins[pluginName] = require('./lib/parserplugins/'+plugin);
 			dfd = dfd.then(plugins[pluginName]);
 			
 		}
@@ -72,7 +72,7 @@ function _dealPagePlugins(){
 		if(/\.js$/.test(plugin)){
 
 			var pluginName = plugin.replace(/\.js$/,'');
-			plugins[pluginName] = require('./lib/plugins/'+plugin);
+			plugins[pluginName] = require('./lib/pageplugins/'+plugin);
 			dfd = dfd.then(plugins[pluginName]);
 			
 		}
