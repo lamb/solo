@@ -35,7 +35,6 @@ function init(){
 	}else{
 
 		dfd = dfd.then(coreParser.parse).then(_dealParserPlugins).then(_dealPagePlugins);
-		// dfd = dfd.then(coreParser.parse).then(_dealPagePlugins).then(_dealParserPlugins);
 
 	}
 	dfd = dfd.then(function(){
@@ -64,8 +63,10 @@ function _dealParserPlugins(){
 		}
 
 	});
-	pluginsDfd.done(function(){
+	pluginsDfd.then(function(){
 		thisDfd.resolve();
+	},function(error){
+		console.log(error);
 	})
 
 	return thisDfd.promise;
@@ -81,8 +82,9 @@ function _dealPagePlugins(dfd){
 
 	pagePluginFileList.forEach(function(plugin){
 
-		if(config.disabledPagePlugins && config.disabledPagePlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
 
+		if(config.disabledPagePlugins && config.disabledPagePlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
+			
 		if(/\.js$/.test(plugin)){
 
 			var pluginName = plugin.replace(/\.js$/,'');
@@ -91,12 +93,12 @@ function _dealPagePlugins(dfd){
 			
 		}
 
-		
-
 	});
-	pluginsDfd.done(function(){
+	pluginsDfd.then(function(){
 		thisDfd.resolve();
-	})
+	},function(error){
+		console.log(error);
+	});
 
 	return thisDfd.promise;
 
