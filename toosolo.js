@@ -18,6 +18,12 @@ function init(){
 	if(!config.skinPath){
 		config.skinPath = path.join(__dirname,'./skin');
 	}
+	if(!config.globalPath){
+		config.globalPath = path.join(config.sourcePath,'./global');
+	}
+	if(!config.blogPath){
+		config.blogPath = path.join(config.sourcePath,'./blogs');
+	}
 
 	global.tooSolo.config = config;
 
