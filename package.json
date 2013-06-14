@@ -14,7 +14,7 @@
   "devDependencies": {},
   "scripts": {},
   "bin": {
-    "toosolo": "solo.js"
+    "toosolo": "toosolo.js"
   },
   "repository": {
     "type": "git",
