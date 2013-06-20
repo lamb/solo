@@ -11,6 +11,8 @@ init();
 
 function init(){
 
+	Q.longStackSupport = true;
+
 	var dfd = Q.when();
 
 	global.tooSolo = {};
@@ -71,7 +73,7 @@ function _dealParserPlugins(){
 	});
 	pluginsDfd.then(function(){
 		thisDfd.resolve();
-	},function(error){
+	}).fail(function(error){
 		console.log(error);
 	})
 
@@ -85,12 +87,13 @@ function _dealPagePlugins(dfd){
 		plugins = [],
 		pluginsDfd = Q.when(),
 		thisDfd = Q.defer();
+		
 
 	pagePluginFileList.forEach(function(plugin){
 
 
 		if(config.disabledPagePlugins && config.disabledPagePlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
-			
+
 		if(/\.js$/.test(plugin)){
 
 			var pluginName = plugin.replace(/\.js$/,'');
@@ -100,9 +103,10 @@ function _dealPagePlugins(dfd){
 		}
 
 	});
+
 	pluginsDfd.then(function(){
 		thisDfd.resolve();
-	},function(error){
+	}).fail(function(error){
 		console.log(error);
 	});
 
