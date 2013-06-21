@@ -14,7 +14,9 @@ function syncFunc1(preData){
 
 	console.log('syncFunc1');
 
-	console.log(preData);
+	// console.log(preData);
+
+	// console.log(preData.abc.c);
 
 	return 'I\'m done immediately.';
 
@@ -26,6 +28,18 @@ function syncFunc2(preData){
 
 	console.log(preData);
 
+	// console.log(preData.abc.c);
+	return 'I\'m done immediately.';
+
+}
+
+function syncFunc3(preData){
+
+	console.log('syncFunc3');
+
+	console.log(preData);
+
+	console.log(preData.abc.c);
 	return 'I\'m done immediately.';
 
 }
@@ -35,6 +49,7 @@ function asyncFunc2(preData){
 	console.log('asyncFunc2');
 
 	console.log(preData);
+	// console.log(preData.abc.c);
 	var dfd=Q.defer();
 	setTimeout(function(){
 		dfd.resolve('I\'m done after 2000ms.');
@@ -50,4 +65,12 @@ function asyncFunc2(preData){
 });
 */
 
-Q.when(syncFunc1()).then(asyncFunc1()).then(asyncFunc2).then(syncFunc2);
+/*Q.when(syncFunc1()).then(asyncFunc1()).then(asyncFunc2).then(syncFunc2,function(err){
+	console.log('error!!!!!!!!!');
+	console.log(err);
+});*/
+
+Q.when(syncFunc1()).then(asyncFunc1()).then(asyncFunc2).then(syncFunc3).then(syncFunc2).fail(function(err){
+	console.log('error!!!!!!!!!');
+	console.log(err);
+});
