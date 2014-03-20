@@ -1,3 +1,5 @@
+# 博客迁移至[www.mynah.org](http://www.mynah.org/)
+
 # solo(独唱团)这是一个由Node构建的静态博客
 
 + 这个静态博客是用markdown来写文章，通过皮肤模板可以build出html页面。

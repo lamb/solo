@@ -1,3 +1,8 @@
+# 博客迁移至[www.mynah.org](http://www.mynah.org/)
+## 2014-03-20 23:52
+
+### 博客迁移至[www.mynah.org](http://www.mynah.org/)
+
 # [消除你对Wind.js的疑虑 ](article/dispel-your-windjs's-doubts.html)
 ## 2012-08-13 23:52
 
