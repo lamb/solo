@@ -41,5 +41,5 @@
 ###有疑问或者...
 
 + 如果你有疑问、建议、bug提交都可以找我
-+ 找我请这里新浪微博[@金氧](http://weibo.com/lambsand),或这里Github[@lambgao](https://github.com/lambgao)
++ 找我请这里新浪微博[@金氧](http://weibo.com/lambsand),或这里Github[@lamb](https://github.com/lamb)
 
